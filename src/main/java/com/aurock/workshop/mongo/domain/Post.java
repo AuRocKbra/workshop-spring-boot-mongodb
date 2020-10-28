@@ -1,12 +1,15 @@
 package com.aurock.workshop.mongo.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.aurock.workshop.mongo.dto.AutorDTO;
+import com.aurock.workshop.mongo.dto.ComentarioDTO;
 
 @Document
 public class Post  implements Serializable{
@@ -21,6 +24,7 @@ public class Post  implements Serializable{
 	private String title;
 	private String bady;
 	private AutorDTO autor;
+	private List<ComentarioDTO> comentarios = new ArrayList<>();
 
 	public Post() {}
 
@@ -95,6 +99,14 @@ public class Post  implements Serializable{
 		} else if (!id.equals(other.id))
 			return false;
 		return true;
+	}
+
+	public List<ComentarioDTO> getComentarios() {
+		return comentarios;
+	}
+
+	public void setComentarios(List<ComentarioDTO> comentarios) {
+		this.comentarios = comentarios;
 	}
 	
 	
