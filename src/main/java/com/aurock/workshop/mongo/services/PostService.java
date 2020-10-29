@@ -1,5 +1,6 @@
 package com.aurock.workshop.mongo.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,5 +22,9 @@ public class PostService {
 		}catch(RuntimeException e ) {
 			throw new ObjectNotFoundException("Recurso não encontrado");
 		}
+	}
+	
+	public List<Post> findByTitle(String txt){
+		return postRepository.searchTitle(txt);
 	}
 }
