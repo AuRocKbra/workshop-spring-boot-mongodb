@@ -11,7 +11,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import com.aurock.workshop.mongo.dto.AutorDTO;
 import com.aurock.workshop.mongo.dto.ComentarioDTO;
 
-@Document
+@Document(collection="post")
 public class Post  implements Serializable{
 	/**
 	 * 
